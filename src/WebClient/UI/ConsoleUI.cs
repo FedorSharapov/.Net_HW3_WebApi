@@ -20,8 +20,8 @@ namespace WebClient.UI
 
             // инициализация меню
             menu = new Menu("WebClient \"Customers\"");
-            menu.Add(new Item("Получить данные по \"Id\"", GetCustomer));
-            menu.Add(new Item("Сгенерировать случайного \"Customer\"", PostRandomCustomer));
+            menu.Add(new Item("Получить данные по \"Id\"", GetCustomerAsync));
+            menu.Add(new Item("Сгенерировать случайного \"Customer\"", PostRandomCustomerAsync));
         }
         public void Run()
         {
@@ -29,7 +29,7 @@ namespace WebClient.UI
             menu.Updating();
         }
 
-        private async Task GetCustomer()
+        private async Task GetCustomerAsync()
         {
             Console.Write("Введите Id: ");
             try
@@ -48,7 +48,7 @@ namespace WebClient.UI
             }
         }
 
-        private async Task PostRandomCustomer()
+        private async Task PostRandomCustomerAsync()
         {
             try
             {

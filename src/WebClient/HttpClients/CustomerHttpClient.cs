@@ -24,12 +24,12 @@ namespace WebClient.HttpClients
             return await _httpClient.GetFromJsonAsync<Customer>($"{id}");
         }
 
-        public async Task<int> CreateCustomerAsync(Customer customer)
+        public async Task<long> CreateCustomerAsync(Customer customer)
         {
             var request = await _httpClient.PostAsJsonAsync<CustomerCreateRequest>("",
                 new CustomerCreateRequest(customer.Firstname, customer.Lastname));
 
-            return await request.Content.ReadFromJsonAsync<int>();
+            return await request.Content.ReadFromJsonAsync<long>();
         }
     }
 }
