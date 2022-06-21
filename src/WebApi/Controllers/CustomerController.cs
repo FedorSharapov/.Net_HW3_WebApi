@@ -2,11 +2,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using WebApi.Models;
-using Customers.Application.Customers.Commands.CreateCustomer;
-using Customers.Application.Customers.Queries.GetCustomerInfo;
-using Customers.Application.Customers.Commands.UpdateCustomer;
-using Customers.Application.Customers.Commands.DeleteCommand;
 using Microsoft.AspNetCore.Http;
+using Customers.Application.Customers.CRUD.ViewModels;
+using Customers.Application.Customers.CRUD.Operations;
 
 namespace WebApi.Controllers
 {

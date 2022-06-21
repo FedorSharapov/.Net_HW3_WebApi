@@ -5,7 +5,7 @@ using Customers.Domain;
 using Customers.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Customers.Application.Common.Exceptions;
-using Customers.Application.Customers.Commands.UpdateCustomer;
+using Customers.Application.Customers.CRUD.Operations;
 
 namespace Customers.Application.Customers.CRUD.Handlers
 {

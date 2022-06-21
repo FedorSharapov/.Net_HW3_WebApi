@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using Customers.Application.Common.Exceptions;
+using Customers.Application.Customers.CRUD.Operations;
+using Customers.Application.Customers.CRUD.ViewModels;
 using Customers.Application.Interfaces;
 using Customers.Domain;
 using MediatR;

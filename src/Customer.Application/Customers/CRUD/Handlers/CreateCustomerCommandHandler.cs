@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Customers.Domain;
 using Customers.Application.Interfaces;
-using Customers.Application.Customers.Commands.CreateCustomer;
+using Customers.Application.Customers.CRUD.Operations;
 
 namespace Customers.Application.Customers.CRUD.Handlers
 {

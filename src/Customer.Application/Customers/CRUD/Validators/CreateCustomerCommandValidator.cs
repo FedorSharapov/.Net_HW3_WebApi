@@ -1,5 +1,5 @@
 ﻿using System;
-using Customers.Application.Customers.Commands.CreateCustomer;
+using Customers.Application.Customers.CRUD.Operations;
 using FluentValidation;
 
 namespace Customers.Application.Customers.CRUD.Validators
