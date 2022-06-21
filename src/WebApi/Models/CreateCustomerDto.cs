@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Customers.Application.Common.Mappings;
-using Customers.Application.Customers.Commands.CreateCustomer;
+using Customers.Application.Customers.CRUD.Operations;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.Models

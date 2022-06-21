@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace Customers.Application.Customers.Commands.UpdateCustomer
+namespace Customers.Application.Customers.CRUD.Operations
 {
     public class UpdateCustomerCommand : IRequest
     {

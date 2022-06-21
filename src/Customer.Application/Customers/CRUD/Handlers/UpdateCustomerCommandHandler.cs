@@ -5,28 +5,32 @@ using Customers.Domain;
 using Customers.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Customers.Application.Common.Exceptions;
+using Customers.Application.Customers.Commands.UpdateCustomer;
 
-namespace Customers.Application.Customers.Commands.DeleteCommand
+namespace Customers.Application.Customers.CRUD.Handlers
 {
-    public class DeleteCustomerCommandHandler
-                : IRequestHandler<DeleteCustomerCommand>
+    public class UpdateCustomerCommandHandler
+        : IRequestHandler<UpdateCustomerCommand>
     {
         private readonly ICustomersDbContext _dbContext;
 
-        public DeleteCustomerCommandHandler(ICustomersDbContext dbContext) =>
+        public UpdateCustomerCommandHandler(ICustomersDbContext dbContext) =>
             _dbContext = dbContext;
-        public async Task<Unit> Handle(DeleteCustomerCommand request,
+        public async Task<Unit> Handle(UpdateCustomerCommand request,
             CancellationToken cancellationToken)
         {
             var entity =
-                await _dbContext.Customers.FindAsync(new object[] {request.Id}, cancellationToken);
+                await _dbContext.Customers.FirstOrDefaultAsync(customer =>
+                    customer.Id == request.Id, cancellationToken);
 
             if (entity == null || entity.Id != request.Id)
             {
                 throw new NotFoundException(nameof(Customer), request.Id);
             }
 
-            _dbContext.Customers.Remove(entity);
+            entity.Firstname = request.Firstname;
+            entity.Lastname = request.Lastname;
+
             await _dbContext.SaveChangesAsync(cancellationToken);
             return Unit.Value;
         }

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using System;
 using Customers.Application.Common.Mappings;
-using Customers.Application.Customers.Commands.UpdateCustomer;
 using System.ComponentModel.DataAnnotations;
+using Customers.Application.Customers.CRUD.Operations;
 
 namespace WebApi.Models
 {

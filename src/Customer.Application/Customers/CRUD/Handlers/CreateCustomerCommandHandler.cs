@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using MediatR;
 using Customers.Domain;
 using Customers.Application.Interfaces;
+using Customers.Application.Customers.Commands.CreateCustomer;
 
-namespace Customers.Application.Customers.Commands.CreateCustomer
+namespace Customers.Application.Customers.CRUD.Handlers
 {
-    public class CreateCustomerCommandHandler 
-        : IRequestHandler<CreateCustomerCommand,long>
+    public class CreateCustomerCommandHandler
+        : IRequestHandler<CreateCustomerCommand, long>
     {
         private readonly ICustomersDbContext _dbContext;
 

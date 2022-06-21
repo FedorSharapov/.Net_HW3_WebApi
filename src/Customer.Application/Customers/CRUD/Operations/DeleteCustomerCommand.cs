@@ -1,12 +1,12 @@
 ﻿using MediatR;
 
-namespace Customers.Application.Customers.Commands.DeleteCommand
+namespace Customers.Application.Customers.CRUD.Operations
 {
     public class DeleteCustomerCommand : IRequest
     {
         public long Id { get; set; }
 
-        public DeleteCustomerCommand(){}
+        public DeleteCustomerCommand() { }
 
         public DeleteCustomerCommand(long id)
         {

@@ -1,7 +1,8 @@
 ﻿using System;
+using Customers.Application.Customers.CRUD.Operations;
 using FluentValidation;
 
-namespace Customers.Application.Customers.Queries.GetCustomerInfo
+namespace Customers.Application.Customers.CRUD.Validators
 {
     public class GetCustomerInfoQueryValidator : AbstractValidator<GetCustomerInfoQuery>
     {

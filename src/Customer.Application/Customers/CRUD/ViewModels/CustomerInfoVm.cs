@@ -3,7 +3,7 @@ using AutoMapper;
 using Customers.Application.Common.Mappings;
 using Customers.Domain;
 
-namespace Customers.Application.Customers.Queries.GetCustomerInfo
+namespace Customers.Application.Customers.CRUD.ViewModels
 {
     public class CustomerInfoVm : IMapWith<Customer>
     {
