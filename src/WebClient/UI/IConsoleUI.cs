@@ -8,6 +8,8 @@ namespace WebClient.UI
 {
     public interface IConsoleUI
     {
+        Task ReadCustomerInfoByIdAsync();
+        Task CreateRandomCustomerAsync();
         void Run();
     }
 }

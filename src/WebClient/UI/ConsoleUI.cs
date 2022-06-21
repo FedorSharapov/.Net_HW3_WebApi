@@ -20,8 +20,8 @@ namespace WebClient.UI
 
             // инициализация меню
             menu = new Menu("WebClient \"Customers\"");
-            menu.Add(new Item("Получить данные по \"Id\"", GetCustomerAsync));
-            menu.Add(new Item("Сгенерировать случайного \"Customer\"", PostRandomCustomerAsync));
+            menu.Add(new Item("Получить данные по \"Id\"", ReadCustomerInfoByIdAsync));
+            menu.Add(new Item("Сгенерировать случайного \"Customer\"", CreateRandomCustomerAsync));
         }
         public void Run()
         {
@@ -29,13 +29,13 @@ namespace WebClient.UI
             menu.Updating();
         }
 
-        private async Task GetCustomerAsync()
+        public async Task ReadCustomerInfoByIdAsync()
         {
             Console.Write("Введите Id: ");
             try
             {
                 var id = long.Parse(Console.ReadLine());
-                var customer = await _customerHttpClient.GetCustomerAsync(id);
+                var customer = await _customerHttpClient.ReadAsync(id);
 
                 Console.WriteLine(customer.ToString());
             }
@@ -48,15 +48,15 @@ namespace WebClient.UI
             }
         }
 
-        private async Task PostRandomCustomerAsync()
+        public async Task CreateRandomCustomerAsync()
         {
             try
             {
                 var newCustomer = _generator.NewCustomer();
-                var id = await _customerHttpClient.CreateCustomerAsync(newCustomer);
+                var id = await _customerHttpClient.CreateAsync(newCustomer);
                 Console.WriteLine($"Id: {id}");
 
-                var customer = await _customerHttpClient.GetCustomerAsync(id);
+                var customer = await _customerHttpClient.ReadAsync(id);
                 Console.WriteLine(customer.ToString());
             }
             catch (Exception ex)
