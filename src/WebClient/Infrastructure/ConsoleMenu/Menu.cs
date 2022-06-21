@@ -9,13 +9,16 @@ namespace WebClient.Infrastructure.ConsoleMenu
 {
     public class Menu
     {
-        List<Item> _items = new List<Item>();
-        int _selNumItem = 0;
+        List<Item> _items;
+        int _selNumItem;
 
         public Menu(string headerName = "")
         {
             Console.Title = headerName;
             Console.CursorVisible = false;
+
+            _items = new List<Item>();
+            _selNumItem = 0;
         }
 
         public void Add(Item item)

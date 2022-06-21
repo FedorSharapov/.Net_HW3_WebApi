@@ -6,7 +6,7 @@ namespace WebClient.Infrastructure.ConsoleMenu
 {
     public class Item
     {
-        bool _selected = false;
+        bool _selected;
 
         public int Number { get; set; }
         public string Name { get; }
@@ -15,6 +15,8 @@ namespace WebClient.Infrastructure.ConsoleMenu
         public Item(string name)
         {
             Name = name;
+
+            _selected = false;
         }
         public Item(string name, Func<Task> enterFunction) : this(name)
         {
