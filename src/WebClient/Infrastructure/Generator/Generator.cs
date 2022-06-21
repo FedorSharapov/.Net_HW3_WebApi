@@ -36,7 +36,7 @@ namespace WebClient.Infrastructure.Generator
             "Егоров", "Павлов", "Степанов", "Орлов", "Зайцев"
         };
 
-        public Customer NewCustomer()
+        public CustomerVM NewCustomer()
         {
             string name;
             string lastname;
@@ -56,7 +56,7 @@ namespace WebClient.Infrastructure.Generator
                 lastname = _lastNames[iLastNames] + "а";
             }
 
-            return new Customer { Firstname = name, Lastname = lastname };
+            return new CustomerVM { Firstname = name, Lastname = lastname };
         }
     }
 }

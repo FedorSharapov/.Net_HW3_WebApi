@@ -19,12 +19,12 @@ namespace WebClient.HttpClients
             _httpClient.DefaultRequestHeaders.Accept.Clear();
         }
 
-        public async Task<Customer> ReadAsync(string id)
+        public async Task<CustomerVM> ReadAsync(string id)
         {
-            return await _httpClient.GetFromJsonAsync<Customer>(id);
+            return await _httpClient.GetFromJsonAsync<CustomerVM>(id);
         }
 
-        public async Task<string> CreateAsync(Customer customer)
+        public async Task<string> CreateAsync(CustomerVM customer)
         {
             var request = await _httpClient.PostAsJsonAsync<CustomerCreateRequest>("",
                 new CustomerCreateRequest(customer.Firstname, customer.Lastname));
