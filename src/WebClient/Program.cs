@@ -23,7 +23,6 @@ namespace WebClient
 {
     static class Program
     {
-        static ServiceProvider services;
         static async Task Main(string[] args)
         {
             var provider = ConfigureServices();
