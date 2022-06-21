@@ -5,7 +5,7 @@ namespace WebClient.HttpClients
 {
     public interface ICustomerHttpClient
     {
-        Task<Customer> ReadAsync(long id);
-        Task<long> CreateAsync(Customer customer);
+        Task<Customer> ReadAsync(string id);
+        Task<string> CreateAsync(Customer customer);
     }
 }

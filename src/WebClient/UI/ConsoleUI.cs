@@ -20,8 +20,8 @@ namespace WebClient.UI
 
             // инициализация меню
             menu = new Menu("WebClient \"Customers\"");
-            menu.Add(new Item("Получить данные по \"Id\"", ReadCustomerInfoByIdAsync));
-            menu.Add(new Item("Сгенерировать случайного \"Customer\"", CreateRandomCustomerAsync));
+            menu.Add(new Item("Получить данные \"Customer\" по \"Id\"", ReadCustomerInfoByIdAsync));
+            menu.Add(new Item("Добавить случайного \"Customer\"", CreateRandomCustomerAsync));
         }
         public void Run()
         {
@@ -32,27 +32,33 @@ namespace WebClient.UI
         public async Task ReadCustomerInfoByIdAsync()
         {
             Console.Write("Введите Id: ");
+
+            var id = Console.ReadLine();
+            if (!long.TryParse(id, out var result))
+            {
+                ConsoleHelper.MsgError("Ошибка! Введен некорректный Id!");
+                return;
+            }
+
             try
             {
-                var id = long.Parse(Console.ReadLine());
                 var customer = await _customerHttpClient.ReadAsync(id);
-
                 Console.WriteLine(customer.ToString());
             }
             catch (Exception ex)
             {
-                if( ex.Message.Contains("Response status code does not indicate success: 500"))
+                if(ex.Message.Contains("Response status code does not indicate success: 500"))
                     ConsoleHelper.MsgError("\"Customer\" с таким Id не найден!");
                 else
-                    ConsoleHelper.MsgError(ex.Message); 
+                    ConsoleHelper.MsgError(ex.Message);
             }
         }
 
         public async Task CreateRandomCustomerAsync()
         {
+            var newCustomer = _generator.NewCustomer();
             try
             {
-                var newCustomer = _generator.NewCustomer();
                 var id = await _customerHttpClient.CreateAsync(newCustomer);
                 Console.WriteLine($"Id: {id}");
 
