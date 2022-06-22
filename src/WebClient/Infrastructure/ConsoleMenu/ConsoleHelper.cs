@@ -20,6 +20,13 @@ namespace WebClient.Infrastructure.ConsoleMenu
             Console.WriteLine(text);
             Console.ForegroundColor = ConsoleColor.White;
         }
+        public static void MsgSuccess(string text)
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(text);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
         public static void MsgMenuStepOutOrExit()
         {
             Console.WriteLine();

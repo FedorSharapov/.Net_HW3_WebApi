@@ -64,6 +64,9 @@ namespace WebClient.UI
 
                 var customer = await _customerHttpClient.ReadAsync(id);
                 Console.WriteLine(customer.ToString());
+
+
+                ConsoleHelper.MsgSuccess("\"Customer\" отправлен на сервер!");
             }
             catch (Exception ex)
             {
